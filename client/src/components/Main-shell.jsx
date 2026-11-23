@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Window } from "./Window";
 
 export function MainShell() {
     //estados
@@ -7,9 +8,10 @@ export function MainShell() {
   const [isDragging, setIsDragging] = useState(false);
 
   const handlePointerDown = (ev) => {
-    setIsDragging(true);
-    ev.currentTarget.setPointerCapture(ev.pointerId);
-  };
+  setIsDragging(true);
+  ev.currentTarget.setPointerCapture(ev.pointerId);
+};
+
   //coloca o estado e o x,y do elemento para o arrastamento do mouse
   const handlePointerMove = (ev) => {
     if (!isDragging) return;
@@ -26,7 +28,7 @@ export function MainShell() {
   };
 
   return (
-    <div
+    <div 
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
@@ -36,10 +38,13 @@ export function MainShell() {
         top: `${pos.y}px`,
         cursor: isDragging ? "grabbing" : "grab",
         userSelect: "none",
+        width:"100vw",
+        height:"100vh",
+        zIndex: 0,
       }}
-      className="hover-lift"
+      className="hover-lift bg-secondary bg-gradient"
     >
-      Element position: X = {pos.x}, Y = {pos.y}
+      <Window></Window>
     </div>
   );
 }
