@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <Header></Header>
+      <div className="dot-grid vw-100 vh-100"></div>
       <MainShell></MainShell>
       <TaskBar></TaskBar>
     </>

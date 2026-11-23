@@ -3,8 +3,18 @@
   --bs-primary-bg: #F54927;
   --bs-primary-border: #F54927;
   --bs-body-font-family: "ZT Nature", system-ui, sans-serif;
+
+  --bs-body-color: #ffffff;        /* texto geral */
+  --bs-heading-color: #ffffff;     /* títulos (h1-h6) */
+  --bs-link-color: #F54927;        /* links */
 }
 
 html, body {
   overflow: hidden;
+}
+
+.dot-grid {
+  background-image: radial-gradient(#9ca3af4f 1px, transparent 1px);
+  border-radius: 100px;
+  background-size: 30px 30px; 
 }

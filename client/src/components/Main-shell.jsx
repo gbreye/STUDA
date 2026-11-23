@@ -12,6 +12,8 @@ export function MainShell() {
   ev.currentTarget.setPointerCapture(ev.pointerId);
 };
 
+
+
   //coloca o estado e o x,y do elemento para o arrastamento do mouse
   const handlePointerMove = (ev) => {
     if (!isDragging) return;
@@ -42,7 +44,7 @@ export function MainShell() {
         height:"100vh",
         zIndex: 0,
       }}
-      className="hover-lift bg-secondary bg-gradient"
+      className="hover-lift"
     >
       <Window></Window>
     </div>

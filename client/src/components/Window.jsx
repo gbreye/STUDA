@@ -1,7 +1,13 @@
 import { useState } from "react";
 
 export function Window() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const WIN_W = 300;
+  const WIN_H = 200;
+
+  const [pos, setPos] = useState(() => ({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2
+  }));
   const [isDragging, setIsDragging] = useState(false);
 
   const handlePointerDown = (ev) => {
