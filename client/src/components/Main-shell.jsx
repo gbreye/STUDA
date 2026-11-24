@@ -1,20 +1,17 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { Window } from "./Window";
+import { useZoom } from "../hooks/getZoom";
 
 export function MainShell() {
     //estados
     //basicamente posição e estado de verificação
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-
   const handlePointerDown = (ev) => {
   setIsDragging(true);
   ev.currentTarget.setPointerCapture(ev.pointerId);
 };
-
-
-
-  //coloca o estado e o x,y do elemento para o arrastamento do mouse
+  const {zoom, handle} = useZoom();  //coloca o estado e o x,y do elemento para o arrastamento do mouse
   const handlePointerMove = (ev) => {
     if (!isDragging) return;
 
@@ -43,6 +40,7 @@ export function MainShell() {
         width:"100vw",
         height:"100vh",
         zIndex: 0,
+        scale: zoom,
       }}
       className="hover-lift"
     >
