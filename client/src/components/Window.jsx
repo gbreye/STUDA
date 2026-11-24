@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export function Window() {
-  const WIN_W = 300;
-  const WIN_H = 200;
+
+export function Window(windowName) {
+
 
   const [pos, setPos] = useState(() => ({
     x: window.innerWidth / 2,

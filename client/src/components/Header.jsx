@@ -2,7 +2,7 @@ import { Title } from "./typhograpy/Title";
 
 export function Header() {
   return (
-    <header className="navbar navbar-expand bg-gradient px-3 py-2">
+    <header className="navbar navbar-expand bg-gradient px-3 py-2 z-3">
       <div className="container-fluid">
         <Title title="studa." size="h1" fs="fs-6"/>
         
