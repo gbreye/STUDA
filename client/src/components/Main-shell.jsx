@@ -1,6 +1,6 @@
 import { use, useState } from "react";
 import { Window } from "./Window";
-import { useZoom } from "../hooks/getZoom";
+import { useZoom } from "./context/ZoomContext";
 
 export function MainShell() {
     //estados
@@ -11,7 +11,7 @@ export function MainShell() {
   setIsDragging(true);
   ev.currentTarget.setPointerCapture(ev.pointerId);
 };
-  const {zoom, handle} = useZoom();  //coloca o estado e o x,y do elemento para o arrastamento do mouse
+  const {zoom, setZoom} = useZoom();
   const handlePointerMove = (ev) => {
     if (!isDragging) return;
 

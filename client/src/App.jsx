@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Header } from './components/Header'
 import { TaskBar } from './components/Taskbar'
 import { MainShell } from './components/Main-shell'
+import { ZoomProvider } from './components/context/ZoomContext'
 
 function App() {
 
@@ -11,8 +12,10 @@ function App() {
       <Header></Header>
       <div className="dot-grid vw-100 vh-100">
       </div>
-      <MainShell></MainShell>
-      <TaskBar></TaskBar>
+      <ZoomProvider>
+          <MainShell></MainShell>
+          <TaskBar></TaskBar>
+      </ZoomProvider>
     </>
   )
 }
