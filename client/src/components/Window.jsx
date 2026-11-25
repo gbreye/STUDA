@@ -1,10 +1,9 @@
 import { useState } from "react";
-
+import { Draggable } from "./hooks/Draggable";
 
 export function Window(windowName) {
 
-
-  const [pos, setPos] = useState(() => ({
+  /*const [pos, setPos] = useState(() => ({
     x: window.innerWidth / 2,
     y: window.innerHeight / 2
   }));
@@ -30,20 +29,27 @@ export function Window(windowName) {
   };
 
   return (
-    <div
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-      style={{
-        position: "absolute",
-        left: `${pos.x}px`,
-        top: `${pos.y}px`,
-        cursor: isDragging ? "grabbing" : "grab",
-        userSelect: "none",
-      }}
-      className="hover-lift bg-primary bg-gradient"
-    >
-      Element position: X = {pos.x}, Y = {pos.y}
-    </div>
-  );
+    <section>
+      <div
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        style={{
+          position: "absolute",
+          left: `${pos.x}px`,
+          top: `${pos.y}px`,
+          cursor: isDragging ? "grabbing" : "grab",
+          userSelect: "none",
+        }}
+        className="div-resizable hover-lift bg-primary bg-gradient p-3 rounded w-50 h-50 shadow"
+      >
+        Titulo do Programa:
+      </div>
+    </section>
+  );*/
+  return (
+    <Draggable>
+        <div className="">Olá mundo</div>
+    </Draggable>
+  )
 }

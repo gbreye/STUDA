@@ -45,6 +45,7 @@ export function MainShell() {
       className="hover-lift"
     >
       <Window></Window>
+      <Window></Window>
     </div>
   );
 }
