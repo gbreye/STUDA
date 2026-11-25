@@ -44,8 +44,8 @@ export function MainShell() {
       }}
       className="hover-lift"
     >
-      <Window></Window>
-      <Window></Window>
+      <Window windowName={"Notas"}></Window>
+      <Window windowName={"Calculadora"}></Window>
     </div>
   );
 }

@@ -39,7 +39,7 @@ export function Draggable({children}) {
           cursor: isDragging ? "grabbing" : "grab",
           userSelect: "none",
         }}
-        className="div-resizable hover-lift bg-primary bg-gradient p-3 rounded w-50 h-50 shadow"
+        className="div-resizable hover-lift bg-primary bg-gradient p-3 rounded w-auto h-auto shadow"
       >
         {children}
       </div>
