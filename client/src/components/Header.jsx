@@ -25,14 +25,14 @@ export function Header() {
             <a className="nav-link hover-lift" href="#" onClick={openPopup}>Apps</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link hover-lift" href="#">Login</a>
+            <a className="nav-link hover-lift" href="#" onClick={openPopup}>Login</a>
           </li>
           <li className="nav-item">
             <a className="nav-link disabled hover-lift" aria-disabled="true">Settings</a>
           </li>
         </ul>
       </div>
-      <Popup isOpen={isOpen} onClose={handleClose}></Popup>
+      <Popup isOpen={isOpen} onClose={handleClose} Title={"Ops!"} Type={"Alert"} Content={"Essa função ainda não está pronta!"}></Popup>
     </header>
   );
 }

@@ -24,8 +24,8 @@ export function Draggable({children}) {
     if (!grabbing) return;
     
     setPos((prevPos) => ({
-      x: prevPos.x + (ev.movementX*zoom),
-      y: prevPos.y + (ev.movementY*zoom),
+      x: prevPos.x + (ev.movementX / zoom),
+      y: prevPos.y + (ev.movementY / zoom),
     }));
   };
   //dps que o mouse solta, is dragging é false
