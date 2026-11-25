@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { useIndex } from "../context/IndexContext";
+import { useZoom, ZoomProvider } from "../context/ZoomContext";
 
 export function Draggable({children}) {
-
+  //esse hook serve pra criar elementos arrastaveis
+  const {zoom, setZoom} = useZoom();
   const {index, grabbing, setGrabbing} = useIndex();
   const defaultIndex = 0;
   const [isGrabbingMe, setGrabbingMe] = useState(false);
-    //esse hook serve pra criar elementos arrastaveis
   const [pos, setPos] = useState(() => ({
     x: window.innerWidth / 2,
     y: window.innerHeight / 2
-  })); //cria basicamente o estado x e y do componente envolvido no wrap
+  })); 
+  //cria basicamente o estado x e y do componente envolvido no wrap
   //declara se está arrastando ou n
   const handlePointerDown = (ev) => {
     ev.stopPropagation();
@@ -22,11 +24,11 @@ export function Draggable({children}) {
     if (!grabbing) return;
     
     setPos((prevPos) => ({
-      x: prevPos.x + ev.movementX,
-      y: prevPos.y + ev.movementY,
+      x: prevPos.x + (ev.movementX*zoom),
+      y: prevPos.y + (ev.movementY*zoom),
     }));
   };
-  //depois que o mouse solta, is dragging é false
+  //dps que o mouse solta, is dragging é false
   const handlePointerUp = (ev) => {
     setGrabbingMe(false);
     setGrabbing(false);

@@ -18,3 +18,8 @@ html, body {
   border-radius: 100px;
   background-size: 30px 30px; 
 }
+
+.blur-popup-shell {
+  background-color: rgba(0, 0, 0, 0.532);
+  backdrop-filter: blur(10px);
+}

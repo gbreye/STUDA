@@ -1,6 +1,17 @@
 import { Title } from "./typhograpy/Title";
+import { useState } from "react";
+import Popup from "./Popup";
 
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  }
+
+  const openPopup = () => {
+    setIsOpen(true);
+  }
   return (
     <header className="navbar navbar-expand bg-gradient px-3 py-2 z-3">
       <div className="container-fluid">
@@ -11,7 +22,7 @@ export function Header() {
             <a className="nav-link active hover-lift" aria-current="page" href="#">Home</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link hover-lift" href="#">Apps</a>
+            <a className="nav-link hover-lift" href="#" onClick={openPopup}>Apps</a>
           </li>
           <li className="nav-item">
             <a className="nav-link hover-lift" href="#">Login</a>
@@ -21,6 +32,7 @@ export function Header() {
           </li>
         </ul>
       </div>
+      <Popup isOpen={isOpen} onClose={handleClose}></Popup>
     </header>
   );
 }
