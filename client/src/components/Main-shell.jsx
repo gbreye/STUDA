@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import { Window } from "./Window";
 import { useZoom } from "./context/ZoomContext";
+import { IndexProvider } from "./context/IndexContext";
 
 export function MainShell() {
     //estados
@@ -44,8 +45,10 @@ export function MainShell() {
       }}
       className="hover-lift"
     >
-      <Window windowName={"Notas"}></Window>
+      <IndexProvider>
+        <Window windowName={"Notas"}></Window>
       <Window windowName={"Calculadora"}></Window>
+      </IndexProvider>
     </div>
   );
 }
