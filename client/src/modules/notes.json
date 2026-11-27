@@ -1,0 +1,6 @@
+{
+    "name": "notes",
+    "version": "1.0.0",
+    "html": "<section className={bg-primary}><h1 className={fs-4} onClick={Alert}>Daniel</h1><p>Hello, Daniel!</p></section>",
+    "js": "Alert = () => {alert('Hello World!')}"
+}

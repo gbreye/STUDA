@@ -5,7 +5,7 @@ import { useZoom, ZoomProvider } from "../context/ZoomContext";
 export function Draggable({children}) {
   //esse hook serve pra criar elementos arrastaveis
   const {zoom, setZoom} = useZoom();
-  const {index, grabbing, setGrabbing} = useIndex();
+  const {index, grabbing, setGrabbing, focus, setFocus} = useIndex();
   const defaultIndex = 0;
   const [isGrabbingMe, setGrabbingMe] = useState(false);
   const [pos, setPos] = useState(() => ({
@@ -32,6 +32,7 @@ export function Draggable({children}) {
   const handlePointerUp = (ev) => {
     setGrabbingMe(false);
     setGrabbing(false);
+
     ev.currentTarget.releasePointerCapture(ev.pointerId);
   };
 
@@ -47,7 +48,7 @@ export function Draggable({children}) {
           top: `${pos.y}px`,
           cursor: grabbing ? "grabbing" : "grab",
           userSelect: "none",
-          zIndex: isGrabbingMe ? index : defaultIndex
+          zIndex: (isGrabbingMe && focus) ? index : defaultIndex
         }}
         className="div-resizable hover-lift bg-primary bg-gradient p-3 rounded w-auto h-auto shadow"
       >

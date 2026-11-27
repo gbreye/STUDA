@@ -1,9 +1,15 @@
 import { Draggable } from "./hooks/Draggable";
+import { getNotes } from "./hooks/ParseJson";
 
 export function Window({ windowName }) {
+  const { htmlString, jsString } = getNotes();
+
+  function HtmlRenderer({ htmlString }) {
+  return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
+  }
   return (
     <Draggable>
-      <div className="w-100">{windowName}</div>
+      <HtmlRenderer htmlString={htmlString} />
     </Draggable>
   );
 }
